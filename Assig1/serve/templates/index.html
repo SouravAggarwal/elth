@@ -1,0 +1,21 @@
+<form  method="POST">
+	{% csrf_token %}
+	
+	{% for i in message %}
+		{{i.text}}
+		<br>
+		{% if i.var_name %}
+			{% if i.quick_replies %}
+				{% for j in i.quick_replies %}
+					<input type="radio" name={{i.var_name}} value={{j.payload}}>{{j.title}}<br>
+				{% endfor %}
+			{% else %}
+			<input type="text" name={{i.var_name}}>
+			{% endif %}
+		
+		{% endif %}
+		<input type="hidden" value={{i.index}} name="last_index">
+	{% endfor %}
+	<br>
+	<input type="submit" />
+</form>
