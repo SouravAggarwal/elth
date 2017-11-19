@@ -61,8 +61,7 @@ class Interpreter:
 
 def sample_text_function(question,data):
 	index = data.index(question)
-	type = list(question.ke
-	ys())[0]
+	type = list(question.keys())[0]
 	instance = Interpreter()
 	res = []
 	if type == "instruction":
